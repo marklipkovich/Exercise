@@ -5,22 +5,23 @@ public class MyHashSet {
 
     /** Initialize your data structure here. */
     int n = 100;
-    ArrayList[] mySet = new ArrayList[n];
+    private ArrayList[] mySet = new ArrayList[n];
 
-    public MyHashSet() {
-        for (int i = 0; i <n; i++)
+    private MyHashSet() {
+        for (int i = 0; i <n; i++) {
             mySet[i] = new ArrayList();
+        }
 
 
     }
 
-    public void add(int key) {
+    private void add(int key) {
         if (!mySet[key % n].contains(key))
             mySet[key % n].add(key);
 
     }
 
-    public void remove(int key) {
+    private void remove(int key) {
 
         if (mySet[key % n].size() >0) {
             mySet[key % n].remove(Integer.valueOf(key));
@@ -28,11 +29,9 @@ public class MyHashSet {
     }
 
     /** Returns true if this set contains the specified element */
-    public boolean contains(int key) {
+    private boolean contains(int key) {
         if (mySet[key % n].size() >0) {
-            if (mySet[key % n].contains(key)) {
-                return true;
-            }
+            return mySet[key % n].contains(key);
         }
         return false;
     }
@@ -50,12 +49,6 @@ public class MyHashSet {
     }
 }
 
-/**
- * Your MyHashSet object will be instantiated and called as such:
- * MyHashSet obj = new MyHashSet();
- * obj.add(key);
- * obj.remove(key);
- * boolean param_3 = obj.contains(key);
- */
+
 
 

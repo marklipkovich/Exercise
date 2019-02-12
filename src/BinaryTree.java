@@ -1,9 +1,8 @@
-package model;
 
 public class BinaryTree {
     Node root;
 
-    public void addNode(int key, String name) {
+    private void addNode(int key, String name) {
         // Create a new Node and initialize it
         Node newNode = new Node(key, name);
         // If there is no root this becomes root
@@ -44,21 +43,21 @@ public class BinaryTree {
         // Recursion is used to go to one node and
         // then go to its child nodes and so forth
 
-    public void inOrderTraverseTree(Node focusNode) {
+    private void inOrderTraverseTree(Node focusNode) {
         if (focusNode != null) {
             inOrderTraverseTree(focusNode.leftChild);
             System.out.println(focusNode);
             inOrderTraverseTree(focusNode.rightChild);
         }
     }
-    public void preorderTraverseTree(Node focusNode) {
+    private void preorderTraverseTree(Node focusNode) {
         if (focusNode != null) {
             System.out.println(focusNode);
             preorderTraverseTree(focusNode.leftChild);
             preorderTraverseTree(focusNode.rightChild);
         }
     }
-    public void postOrderTraverseTree(Node focusNode) {
+    private void postOrderTraverseTree(Node focusNode) {
         if (focusNode != null) {
             postOrderTraverseTree(focusNode.leftChild);
             postOrderTraverseTree(focusNode.rightChild);
@@ -66,7 +65,7 @@ public class BinaryTree {
         }
     }
 
-    public Node findNode(int key) {
+    private Node findNode(int key) {
         // Start at the top of the tree
         Node focusNode = root;
         // While we haven't found the Node keep looking

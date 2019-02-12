@@ -4,7 +4,7 @@ class MyCircularQueue {
     int [] queue;
     int k;
     /** Initialize your data structure here. Set the size of the queue to be k. */
-    public MyCircularQueue(int k) {
+    private MyCircularQueue(int k) {
         queue = new int[k];
         head = -1;
         tail = -1;
@@ -12,7 +12,7 @@ class MyCircularQueue {
     }
 
     /** Insert an element into the circular queue. Return true if the operation is successful. */
-    public boolean enQueue(int value) {
+    private boolean enQueue(int value) {
         if (isFull()) return false;
         else {
             tail++;
@@ -23,7 +23,7 @@ class MyCircularQueue {
         }
     }
     /** Delete an element from the circular queue. Return true if the operation is successful. */
-    public boolean deQueue() {
+    private boolean deQueue() {
         if (isEmpty()) return false;
         if (head == tail){
             head = -1;
@@ -37,33 +37,27 @@ class MyCircularQueue {
         }
     }
     /** Get the front item from the queue. */
-    public int Front() {
+    private int Front() {
         if (isEmpty())
             return -1;
         else return queue[head];
     }
     /** Get the last item from the queue. */
-    public int Rear() {
+    private int Rear() {
         if (isEmpty())
             return -1;
         else return queue[tail];
     }
     /** Checks whether the circular queue is empty or not. */
-    public boolean isEmpty() {
-        if (head == -1)
-            return true;
-        else
-            return false;
+    private boolean isEmpty() {
+        return head == -1;
     }
     /** Checks whether the circular queue is full or not. */
-    public boolean isFull() {
+    private boolean isFull() {
         int next = tail + 1;
         if (next == queue.length)
             next = 0;
-        if (next == head)
-            return true;
-        else
-            return false;
+        return next == head;
     }
 
     public  static void main(String arg[]){
@@ -81,13 +75,3 @@ class MyCircularQueue {
     }
 }
 
-/**
- * Your MyCircularQueue object will be instantiated and called as such:
- * MyCircularQueue obj = new MyCircularQueue(k);
- * boolean param_1 = obj.enQueue(value);
- * boolean param_2 = obj.deQueue();
- * int param_3 = obj.Front();
- * int param_4 = obj.Rear();
- * boolean param_5 = obj.isEmpty();
- * boolean param_6 = obj.isFull();
- */

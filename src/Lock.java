@@ -18,13 +18,9 @@ public class Lock {
     }
 
      private char increaseChar(char ch) {
-        //int a=Character.getNumericValue(ch);
-        //a = (a + 1) % 10;
          if (ch == '9') ch = '0';
             else ch = (char) (ch + 1);
             return ch;
-        //return (Integer.toString(a)).charAt(0);
-
     }
 
      private char decreaseChar(char ch) {
@@ -34,7 +30,7 @@ public class Lock {
     }
 
     private int openLock(String[] deadEnd, String root, String target) {
-        if (Arrays.asList(deadEnd).contains(root))  return -1;
+        if (Arrays.asList(deadEnd).contains(root))  return - 1;
         int step = 0;
         queue.add(root);
         visited.put(root,"");

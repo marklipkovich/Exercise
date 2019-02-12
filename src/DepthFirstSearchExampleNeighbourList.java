@@ -1,11 +1,10 @@
-package model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 public class DepthFirstSearchExampleNeighbourList
 {
-
     static class Node
     {
         int data;
@@ -18,11 +17,11 @@ public class DepthFirstSearchExampleNeighbourList
             this.neighbours=new ArrayList<>();
 
         }
-        public void addneighbours(Node neighbourNode)
+        void addneighbours(Node neighbourNode)
         {
             this.neighbours.add(neighbourNode);
         }
-        public List<Node> getNeighbours() {
+        List<Node> getNeighbours() {
             return neighbours;
         }
         public void setNeighbours(List<Node> neighbours) {
@@ -31,24 +30,22 @@ public class DepthFirstSearchExampleNeighbourList
     }
 
     // Recursive DFS
-    public  void dfs(Node node)
+    private void dfs(Node node)
     {
         System.out.print(node.data + " ");
-        List<Node> neighbours=node.getNeighbours();
+        List<Node> neighbours = node.getNeighbours();
         node.visited=true;
-        for (int i = 0; i < neighbours.size(); i++) {
-            Node n=neighbours.get(i);
-            if(n!=null && !n.visited)
-            {
+        for (Node n : neighbours) {
+            if (n != null && !n.visited) {
                 dfs(n);
             }
         }
     }
 
     // Iterative DFS using stack
-    public  void dfsUsingStack(Node node)
+    private void dfsUsingStack(Node node)
     {
-        Stack<Node> stack=new  Stack<Node>();
+        Stack<Node> stack=new  Stack<>();
         stack.add(node);
         node.visited=true;
         while (!stack.isEmpty())
@@ -57,12 +54,10 @@ public class DepthFirstSearchExampleNeighbourList
             System.out.print(element.data + " ");
 
             List<Node> neighbours=element.getNeighbours();
-            for (int i = 0; i < neighbours.size(); i++) {
-                Node n=neighbours.get(i);
-                if(n!=null && !n.visited)
-                {
+            for (Node n : neighbours) {
+                if (n != null && !n.visited) {
                     stack.add(n);
-                    n.visited=true;
+                    n.visited = true;
 
                 }
             }

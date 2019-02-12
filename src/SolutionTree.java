@@ -1,14 +1,10 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.max;
-
-
 public class SolutionTree {
 
-    TreeNode root;
-    public void addNode(int val) {
+    private TreeNode root;
+    private void addNode(int val) {
         TreeNode newNode = new TreeNode(val);
         if (root == null) {
             root = newNode;
@@ -74,11 +70,8 @@ public class SolutionTree {
         return res;
     }
 
-
-
-
-    static List<Integer>result = new ArrayList<>();
-    public static List<Integer> preorderTraversal(TreeNode root) {
+    private static List<Integer>result = new ArrayList<>();
+    private static List<Integer> preorderTraversal(TreeNode root) {
 
         if (root != null) {
             result.add(root.val);

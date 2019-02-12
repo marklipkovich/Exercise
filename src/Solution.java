@@ -5,18 +5,11 @@ class Solution {
         //int[] nums = {-1,-1,-1,0,1,1};
         //int result = pivotIndex(nums);
         //System.out.print(result);
-
-
         String s = "10100000100100110110010000010101111011011001101110111111111101000000";
         String sum = addBinary("1010","1011");
         System.out.print(sum);
-
-
-
     }
-
-
-        public static String addBinary(String a, String b) {
+        private static String addBinary(String a, String b) {
             BigInteger decimal_a = new BigInteger(a, 2);
             BigInteger decimal_b = new BigInteger(b, 2);
             //Long decimal_a = Long.parseLong(a,2);
