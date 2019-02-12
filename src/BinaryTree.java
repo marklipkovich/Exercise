@@ -1,7 +1,6 @@
 
 public class BinaryTree {
     Node root;
-
     private void addNode(int key, String name) {
         // Create a new Node and initialize it
         Node newNode = new Node(key, name);
